@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/layui.css"  media="all">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body,
+        html{
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        /*body{background:#000;}*/
+
+        canvas{
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: 0;
+            padding: 0;
+            display: block; /*  ˉ\_(ツ)_/ˉ  */
+            touch-action: none;
+        }
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div id="wizard" class="wizard">
+        <div class="wizard__content">
+            <header class="wizard__header">
+                <div class="wizard__header-overlay"></div>
+
+                <div class="wizard__header-content">
+                    <h1 class="wizard__title" >java 学习论坛 开始</h1>
+                    <p class="wizard__subheading">简单的 <span>3</span> 步骤.</p>
+                </div>
+
+                <div class="wizard__steps">
+                    <nav class="steps">
+                        <div class="step">
+                            <div class="step__content">
+                                <p class="step__number"><i class="fa fa-github-alt"></i></p>
+                                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                    <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none">
+                                        <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8">
+                                </svg>
+
+                                <div class="lines">
+                                    <div class="line -start">
+                                    </div>
+
+                                    <div class="line -background">
+                                    </div>
+
+                                    <div class="line -progress">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step__content">
+                                <p class="step__number"><i class="fa fa-book"></i></p>
+                                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                    <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none">
+                                        <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8">
+                                </svg>
+
+                                <div class="lines">
+                                    <div class="line -background">
+                                    </div>
+
+                                    <div class="line -progress">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step__content">
+                                <p class="step__number"><i class="fa fa-group"></i></p>
+                                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                                    <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none">
+                                        <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8">
+                                </svg>
+
+                                <div class="lines">
+                                    <div class="line -background">
+                                    </div>
+
+                                    <div class="line -progress">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+
+
+            <div class="panels">
+                <div class="panel">
+                    <header class="panel__header">
+                        <h2 class="panel__title">创建账号</h2>
+                        <p class="panel__subheading">欢迎加入我们！</p>
+                    </header>
+                    <form class="layui-form" style="width:500px">
+                        <div class="layui-form-item">
+                        <label class="layui-form-label">用户名</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="title" id="name" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">密码</label>
+                            <div class="layui-input-block">
+                                <input type="password" name="title" id="password" lay-verify="title" autocomplete="off" placeholder="请输入密码" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">确认密码</label>
+                            <div class="layui-input-block">
+                                <input type="password" name="title" lay-verify="title" autocomplete="off" placeholder="确认密码" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">邮箱</label>
+                            <div class="layui-input-block">
+                                <input type="email" name="title" lay-verify="title" id="email" autocomplete="off" placeholder="邮箱" class="layui-input">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="panel">
+                    <header class="panel__header">
+                        <h2 class="panel__title">进一步了解Java 学习论坛 </h2>
+                        <p class="panel__subheading">我们有很酷的框架</p>
+                    </header>
+                    了解我们，<br>
+                    点击下一步即为同意我们的守则
+                </div>
+
+                <div class="panel">
+                    <header class="panel__header">
+                        <h2 class="panel__title">保持联系</h2>
+                        <p class="panel__subheading">在这里我们做一些疯狂的事情。</p>
+                    </header>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">邮箱验证码</label>
+                        <div class="layui-input-block">
+                            <input type="email" name="title" id="code" lay-verify="title" autocomplete="off" placeholder="邮箱验证码" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wizard__footer">
+                <button class="button previous">上一步</button>
+                <button class="button next">下一步</button>
+            </div>
+        </div>
+
+        <h1 class="wizard__congrats-message">
+            恭喜你，你现在处在学习的世界里！ ————3秒后将自动跳转
+        </h1>
+
+    </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="layui.js" charset="utf-8"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

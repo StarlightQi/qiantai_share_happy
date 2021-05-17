@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="../css/zd-1.0.css">
+    <link rel="stylesheet" href="../css/detail.css">
+    <link rel="stylesheet" href="../css/layui.css"  media="all">
+    <link rel="stylesheet" type="text/css" href="../css/search-form.css">
+</head>
+<body>
+<nav>
+    <!-- logo -->
+    <div class="nav-logo" id="top">
+        <a href="../index.html"><img src="../images/img/logo.jpg" alt=""> <span>学习论坛</span></a>
+    </div>
+    <div style="float: right">
+        <form onsubmit="submitFn(this, event);">
+            <div class="search-wrapper">
+                <div class="input-holder">
+                    <input type="text" class="search-input" placeholder="Type to search" />
+                    <button class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
+                </div>
+                <span class="close" onclick="searchToggle(this, event);"></span>
+                <div class="result-container">
+                </div>
+            </div>
+
+        </form>
+        <div class="top" onclick="Topfun()">
+            <i class="layui-icon layui-icon-top"></i>
+        </div>
+    </div>
+    <!-- 控制menu -->
+    <div class="nav-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- 菜单 -->
+    <ul class="nav-list">
+        <li>
+            <a href="" class="active">首页<div class="carect"></div></a>
+            <ul class="menu">
+                <li><a href="">不断学习</a></li>
+                <li><a href="">不断进步</a></li>
+            </ul>
+        </li>
+        <li><a href="">java</a></li>
+        <li><a href="">Python</a></li>
+        <li><a href="">其他</a></li>
+        <li><a href="">Web</a></li>
+        <li><a href="">前端</a></li>
+        <li><a href="">的有</a></li>
+        <li><a href="">为青</a></li>
+        <li id="head"><button data-method="notice" id="layerDemo" class="layui-btn layui-btn-normal">登录</button> <a href="register.html" class="layui-btn layui-btn-normal">注册</a></li>
+    </ul>
+</nav>
+
+<div id="content"></div>
+<script src="../js/jquery.min.js"></script>
+<script src="../layui.js" charset="utf-8"></script>
+<script src="../js/comment.js"></script>
+<script>
+
+    datas=window.sessionStorage.getItem("user");
+    if (datas!=null){
+        setHead(JSON.parse(datas));
+    }
+    function getQueryVariable(variable)
+    {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i=0;i<vars.length;i++) {
+            var pair = vars[i].split("=");
+            if(pair[0] == variable){return pair[1];}
+        }
+        return(false);
+    }
+
+
+    $.ajax({
+        url:"http://127.0.0.1:8066/article/findArticle?articleId="+getQueryVariable("id"),//请求的路径
+        type:"GET",//请求的方式
+        success:function(date){
+            $("#content").html("<div class=\"main-container\">\n" +
+                "    <div class=\"left-container\">\n" +
+                "        <div class=\"title\">\n" +
+                "            <p><span>作品:</span><br />"+date.data[0].title+"</p>\n" +
+                "            <div class=\"line\"></div>\n" +
+                "        </div>\n" +
+                "        <div class=\"profile\">\n" +
+                "            <img src=\"http://127.0.0.1:8066/images/"+date.data[0].userid.userImg+"\" alt=\"user-avatar\" />\n" +
+                "            <p class=\"username\">"+date.data[0].userid.username+"</p>\n" +
+                "        </div>\n" +
+                "    </div>\n" +
+                "    <div class=\"right-container\">\n" +
+                "        <div class=\"text\">\n" +
+                "            <p>\n" +date.data[0].articlecontext+
+                "            </p>\n" +
+                "        </div>\n" +
+                "        <div class=\"footer\">\n" +
+                "            <p class=\"date\">"+format(date.data[0].updateTime)+"</p>\n" +
+                "            <div class=\"comments\">\n" +
+                "                <img src=\"../images/KvP.svg\" alt=\"comment-icon\" />\n" +
+                "                <p class=\"comment-count\">"+date.data[0].likecount+"</p>\n" +
+                "                <img src=\"../images/Kuh.svg\" alt=\"more-icon\" />\n" +
+                "            </div>\n" +
+                "        </div>\n" +
+                "    </div>\n" +
+                "</div>")
+        }
+    });
+</script>
+</body>
+</html>
