@@ -16,17 +16,18 @@
 
 - 登录界面
 
-  ![](1.png)
+  ![](https://github.com/liuxingzhumeng/qiantai_share_happy/tree/master/show/1.png)
 
 - 注册界面
 
-  ![](2.gif)
+  ![](https://github.com/liuxingzhumeng/qiantai_share_happy/tree/master/show/2.gif)
 
 - 之前做过一个注册页面用笛卡尔爱心公式绘制的爱心，后边闲花里胡哨去掉了
 
-  ![](3.png)
+  ![](https://github.com/liuxingzhumeng/qiantai_share_happy/tree/master/show/3.png)
 
 - 客户端搜索及主页展示
 
-  ![](4.png)
+  ![](https://github.com/liuxingzhumeng/qiantai_share_happy/tree/master/show/4.png)
 
+- 注意如果要下载到本地浏览的话，可以吧图片文本前缀https://github.com/liuxingzhumeng/qiantai_share_happy/tree/master/ 删去即可正常显示图片
